@@ -2,151 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Santhana Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About santhana's</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    :root {
-      --blue: #3b82f6;
-      --purple: #a855f7;
-      --teal: #14b8a6;
-      --dark: #0f172a;
-      --glass: rgba(255, 255, 255, 0.2);
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(-45deg, #f8fafc, #e0f2fe, #fce7f3, #ecfeff);
-      background-size: 400% 400%;
-      animation: gradientFlow 15s ease infinite;
-      scroll-behavior: smooth;
+      background: #f0f4ff;
+      color: #333;
     }
 
-    @keyframes gradientFlow {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .navbar {
+    header {
+      background: #fff;
+      padding: 20px 50px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      animation: fadeSlideDown 1s ease;
     }
 
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    header h1 span {
+      color: #5a4bff;
     }
 
-    .navbar-logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--blue);
+  nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #5a4bff;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #5a4bff;
+}
+
+nav a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+nav a.active {
+  color: #5a4bff;
+  border-bottom: 2px solid #5a4bff;
+  padding-bottom: 4px;
+}
+
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
-    .navbar-menu {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    .navbar-menu a {
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-weight: 500;
-      color: var(--dark);
-      transition: 0.3s;
-    }
-
-    .navbar-menu a:hover {
-      background-color: var(--blue);
-      color: #fff;
-    }
-
-    h2 {
+    .about-header {
       text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .about-header h2 {
       font-size: 2.5rem;
-      margin-top: 60px;
-      background: linear-gradient(to right, var(--blue), var(--purple));
-      -webkit-text-fill-color: transparent;
     }
 
-    .about-section {
+    .about-header span {
+      color: #5a4bff;
+    }
+
+    .about-content {
       display: flex;
-      max-width: 1100px;
-      margin: 60px auto;
       gap: 40px;
+      flex-wrap: wrap;
+      background: white;
       padding: 30px;
-      align-items: center;
-      background: var(--glass);
       border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(8px);
-      animation: fadeUp 1.2s ease-in;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      align-items: center;
     }
 
-    .about-left {
-      flex: 1;
-      text-align: center;
-    }
-
-    .about-left img {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      border: 5px solid white;
-      object-fit: cover;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-      transition: transform 0.5s ease;
-    }
-
-    .about-left img:hover {
-      transform: scale(1.08);
-    }
-
-    .about-right {
-      flex: 2;
-      color: #1e293b;
-    }
-
-    .about-right h3 {
-      color: var(--teal);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-    }
-
-    .about-right p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #334155;
-    }
-
-    .timeline-container {
-      max-width: 1100px;
-      margin: 60px auto;
+    .profile-wrapper {
       position: relative;
-      padding: 40px 20px;
+      max-width: 320px;
     }
 
-    .timeline-container::before {
-      content: "";
+    .profile-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+      border: 4px solid #5a4bff;
+    }
+
+    .gpa-badge {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: #5a4bff;
+      color: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .about-details {
+      flex: 1;
+    }
+
+    .about-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 25px;
+    }
+
+    .info-grid i {
+      color: #5a4bff;
+      margin-right: 8px;
+    }
+
+    .resume-button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 26px;
+      background: #5a4bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .resume-button:hover {
+      background: #4534d9;
+    }
+
+    .timeline {
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
       position: absolute;
       left: 50%;
+      top: 0;
+      bottom: 0;
       width: 4px;
-      height: 100%;
-      background: linear-gradient(var(--blue), var(--purple));
+      background: #5a4bff;
       transform: translateX(-50%);
     }
 
@@ -155,110 +181,180 @@
       position: relative;
       padding: 30px;
       box-sizing: border-box;
-      animation: fadeUp 1s ease;
-      opacity: 0;
-      animation-fill-mode: forwards;
     }
 
-    .timeline-item:nth-child(odd) { left: 0; text-align: right; animation-delay: 0.3s; }
-    .timeline-item:nth-child(even) { left: 50%; text-align: left; animation-delay: 0.6s; }
-
-    .timeline-item .circle {
-      position: absolute;
-      top: 30px;
-      width: 24px;
-      height: 24px;
-      background: var(--teal);
-      border: 5px solid white;
-      border-radius: 50%;
-      z-index: 10;
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
     }
 
-    .timeline-item:nth-child(odd) .circle { right: -12px; }
-    .timeline-item:nth-child(even) .circle { left: -12px; }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
 
     .timeline-content {
-      background: var(--glass);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 20px;
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      animation: fadeInUp 0.8s ease;
     }
 
-    .timeline-content h3 {
-      margin: 0 0 8px;
-      color: var(--purple);
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #5a4bff;
+      border: 4px solid #fff;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -50px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -50px;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
     }
 
     .timeline-content p {
-      margin: 0;
-      color: #475569;
+      font-size: 0.95rem;
+      color: #444;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @media screen and (max-width: 768px) {
-      .about-section { flex-direction: column; text-align: center; }
-      .timeline-container::before { left: 20px; }
-      .timeline-item {
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
         width: 100%;
-        left: 0 !important;
+        left: 0;
+        text-align: left;
         padding-left: 50px;
       }
-      .timeline-item .circle { left: 18px !important; right: auto !important; }
+
+      .timeline-content::before {
+        left: -30px !important;
+        right: auto;
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-logo">Santhana</div>
-    <ul class="navbar-menu">
-      <li><a href="index.html">Home</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1 class="text-4xl font-bold text-gray-800 flex items-center gap-3">
+  <i class="fas fa-user-circle text-indigo-600"></i>
+  About Us
+</h1>
 
-  <h2>👨‍💻 About Me</h2>
-  <section class="about-section">
-    <div class="about-left">
-      <img src="profile.jpg" alt="Profile">
-    </div>
-    <div class="about-right">
-      <h3>Full Stack Developer</h3>
-      <p>I build responsive web applications with technologies like React, Node.js, and MongoDB. I'm passionate about design, animations, and creating seamless user experiences.</p>
-    </div>
-  </section>
+    <nav>
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="project.html"><i class="fas fa-code"></i> Projects</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
 
-  <h2>🎓 My Education Journey</h2>
-  <div class="timeline-container">
-    <div class="timeline-item">
-      <div class="circle"></div>
-      <div class="timeline-content">
-        <h3>SSLC</h3>
-        <p>Govt Hr Sec School<br>2018 - 2019</p>
+  </header>
+
+  <div class="container">
+    <div class="about-header">
+      <h2>About <span>Me</span></h2>
+    </div>
+
+    <div class="about-content">
+      <div class="profile-wrapper">
+        <img src="profile.jpg" alt="Profile">
+        <div class="gpa-badge">8.45<br>GPA</div>
+      </div>
+
+      <div class="about-details">
+        <h3>Computer Science Student</h3>
+        <p>I’m a passionate computer science student who enjoys solving problems and building modern websites and applications. I focus on clean code, logical structure, and creative user experiences.</p>
+
+        <div class="info-grid">
+          <div><i class="fas fa-user"></i><b>Name:</b> Santhana Ezhilan.P</div>
+          <div><i class="fas fa-envelope"></i><b>Email:</b> santhanaezhilanp@gmail.com</div>
+          <div><i class="fas fa-code"></i><b>Department:</b> Computer Science</div>
+          <div><i class="fas fa-map-marker-alt"></i><b>Location:</b> Thiruvannamalai</div>
+        </div>
+
+        <a href="Ezhilan Resume.pdf" class="resume-button" download>Download Resume</a>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="circle"></div>
-      <div class="timeline-content">
-        <h3>HSC</h3>
-        <p>Govt Hr Sec School<br>2019 - 2021</p>
-      </div>
+    <!-- Timeline Section -->
+<section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 px-4 text-white">
+  <div class="max-w-5xl mx-auto">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-indigo-400">
+        MY EDUCATION AND JOURNEY
+      </h2>
+      <p class="text-lg mt-2 text-gray-300">A visual timeline of my academic path</p>
     </div>
 
-    <div class="timeline-item">
-      <div class="circle"></div>
-      <div class="timeline-content">
-        <h3>B.E. CSE</h3>
-        <p>XYZ College<br>2021 - Present</p>
+    <!-- Timeline -->
+    <div class="timeline relative border-l-4 border-indigo-500 pl-6 space-y-12">
+      
+      <!-- B.Tech -->
+      <div class="timeline-item relative">
+        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
+        <div class="timeline-content">
+          <h4 class="text-2xl font-semibold">B.E – Computer Science</h4>
+          <p class="text-gray-300">C.ABDUL HAKEEM COLLEGE OF ENGINEERING AND TECHNOLOGY<br>2022 – 2026<br><strong>CGPA:</strong> 8.45</p>
+        </div>
       </div>
+
+      <!-- HSC -->
+      <div class="timeline-item relative">
+        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
+        <div class="timeline-content">
+          <h4 class="text-2xl font-semibold">HSC – Higher Secondary</h4>
+          <p class="text-gray-300">Desia Matric Hr Sec School, kannmangalam<br>2020 – 2022<br><strong>Score:</strong> 76%</p>
+        </div>
+      </div>
+
+      <!-- SSLC -->
+      <div class="timeline-item relative">
+        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
+        <div class="timeline-content">
+          <h4 class="text-2xl font-semibold">SSLC – Secondary School</h4>
+          <p class="text-gray-300">Desia Matric Hr Sec School, kannmangalam<br>2019 – 2020<br><strong>Score:</strong> 80%</p>
+        </div>
+      </div>
+
     </div>
   </div>
-
+</section>
 </body>
 </html>
