@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Projects | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
     /* Base Reset */
@@ -21,6 +22,118 @@
       overflow-x: hidden;
     }
 
+   /* Navbar Base Styles */
+.navbar {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* Menu Links */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffd700;
+  transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #4e54c8;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* Animate Hamburger to "X" */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+
+    /* Header */
     header {
       background: linear-gradient(to right, #4e54c8, #8f94fb);
       padding: 40px 20px;
@@ -112,9 +225,90 @@
       transform: scale(1.05);
     }
 
-    
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, #373b44, #4286f4);
+      color: #f2f2f2;
+      padding: 50px 20px;
+      text-align: center;
+      border-top: 4px solid #fff;
+      position: relative;
+    }
 
-    /* Animation Keyframes */
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      animation: slideInFooter 1s ease;
+    }
+
+    footer h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #f2f2f2;
+      margin: 0 15px;
+      font-weight: 500;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #ffd700;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .footer-links a:hover {
+      color: #ffd700;
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ffd700;
+      transform: scale(1.2);
+    }
+
+    footer .copyright {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin-top: 20px;
+    }
+
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -134,17 +328,63 @@
       to { opacity: 1; transform: translateY(0); }
       from { opacity: 0; transform: translateY(40px); }
     }
+
+    @keyframes slideInFooter {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
   </style>
 </head>
-
 <body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">Santhana</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
 
   <header>
     <h1>My Projects</h1>
     <p>Explore some of the work I've done across various technologies.</p>
   </header>
 
-  <div class="container">
+ <div class="container">
     <div class="grid">
 
       <div class="card">
@@ -205,143 +445,32 @@
     </div>
   </div>
 
- <footer>
-  <div class="footer-container">
-    <h3>Santhana Ezhilan P</h3>
-    <p>CSE - C. Abdul Hakeem College of Engineering and Technology</p>
-
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-      <a href="#">GitHub</a>
+  <footer>
+    <div class="footer-container">
+      <h3>Santhana Ezhilan P</h3>
+      <p>CSE - C. Abdul Hakeem College of Engineering and Technology</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+        <a href="#">GitHub</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="copyright">© 2025 All rights reserved.</p>
     </div>
+  </footer>
 
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-
-    <p class="copyright">© 2025 All rights reserved.</p>
-  </div>
-</footer>
-
-<!-- Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-/* Footer Container */
-footer {
-  background: linear-gradient(to right, #373b44, #4286f4);
-  color: #f2f2f2;
-  padding: 50px 20px;
-  text-align: center;
-  border-top: 4px solid #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-container {
-  max-width: 1100px;
-  margin: auto;
-  animation: slideInFooter 1s ease;
-}
-
-footer h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-  letter-spacing: 1px;
-}
-
-footer p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  opacity: 0.9;
-}
-
-.footer-links {
-  margin: 20px 0;
-}
-
-.footer-links a {
-  color: #f2f2f2;
-  margin: 0 15px;
-  font-weight: 500;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.footer-links a::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #ffd700;
-  transition: width 0.3s;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-}
-
-.footer-links a:hover {
-  color: #ffd700;
-}
-
-.footer-links a:hover::after {
-  width: 100%;
-}
-
-/* Social Media Icons */
-.social-icons {
-  margin: 20px 0;
-}
-
-.social-icons a {
-  color: #fff;
-  margin: 0 10px;
-  font-size: 1.4rem;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ffd700;
-  transform: scale(1.2);
-  text-shadow: 0 0 8px #ffd700;
-}
-
-/* Copyright */
-footer .copyright {
-  font-size: 0.9rem;
-  opacity: 0.75;
-  margin-top: 20px;
-}
-
-/* Animation */
-@keyframes slideInFooter {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .footer-links a,
-  .social-icons a {
-    display: block;
-    margin: 10px auto;
-  }
-}
-</style>
-
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>

@@ -25,6 +25,7 @@
       align-items: center;
       padding: 15px 30px;
       color: white;
+      position: relative;
     }
 
     .navbar .logo {
@@ -35,20 +36,27 @@
       gap: 10px;
     }
 
-    .navbar ul {
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 30px;
     }
 
-    .navbar li a {
+    .nav-links li a {
       color: white;
       text-decoration: none;
       font-size: 1rem;
     }
 
-    .navbar li a:hover {
+    .nav-links li a:hover {
       color: #93c5fd;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
     }
 
     header {
@@ -144,11 +152,27 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      .navbar ul {
+      .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 10px;
+        background: #1e3a8a;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
       }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
       header h1 {
         font-size: 2.2rem;
       }
@@ -160,7 +184,8 @@
 <!-- Navbar -->
 <nav class="navbar">
   <div class="logo"><i class="fas fa-laptop-code"></i> My Web Services</div>
-  <ul>
+  <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
     <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
   </ul>
@@ -241,29 +266,39 @@
   </div>
 
   <div class="card">
-  <i class="fas fa-database"></i>
-  <h3>MongoDB Integration</h3>
-  <p>Need to store user data, MongoDB helps manage data fast and securely.</p>
+    <i class="fas fa-database"></i>
+    <h3>MongoDB Integration</h3>
+    <p>Need to store user data, MongoDB helps manage data fast and securely.</p>
 
-  <h4 style="margin-top: 10px; color:#374151;">Why Use MongoDB?</h4>
-  <ul style="text-align: left; padding-left: 20px;">
-    <li>Fast and flexible database</li>
-    <li>Ideal for dynamic websites & apps</li>
-  </ul>
+    <h4 style="margin-top: 10px; color:#374151;">Why Use MongoDB?</h4>
+    <ul style="text-align: left; padding-left: 20px;">
+      <li>Fast and flexible database</li>
+      <li>Ideal for dynamic websites & apps</li>
+    </ul>
 
-  <h4 style="margin-top: 10px; color:#374151;">Best For:</h4>
-  <ul style="text-align: left; padding-left: 20px;">
-    <li>User logins</li>
-    <li>Real-time updates</li>
-  </ul>
+    <h4 style="margin-top: 10px; color:#374151;">Best For:</h4>
+    <ul style="text-align: left; padding-left: 20px;">
+      <li>User logins</li>
+      <li>Real-time updates</li>
+    </ul>
 
-  <a href="contact.html">Request Now</a>
-</div>
-
+    <a href="contact.html">Request Now</a>
+  </div>
 
 </section>
 
+<!-- Optional: WhatsApp Button -->
+<a class="whatsapp-button" href="https://wa.me/919361663265" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
+<!-- JS for Hamburger Toggle -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('show');
+  }
+</script>
 
 </body>
 </html>

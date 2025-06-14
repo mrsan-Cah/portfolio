@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About santhana's</title>
+  <title>About Santhana's</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -18,53 +20,84 @@
 
     header {
       background: #fff;
-      padding: 20px 50px;
+      padding: 20px 30px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
 
     header h1 span {
       color: #5a4bff;
     }
 
-  nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
+    nav {
+      display: flex;
+      gap: 20px;
+    }
 
-nav a::before {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #5a4bff;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
 
-nav a:hover {
-  color: #5a4bff;
-}
+    nav a::before {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #5a4bff;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
 
-nav a:hover::before {
-  visibility: visible;
-  width: 100%;
-}
+    nav a:hover {
+      color: #5a4bff;
+    }
 
-nav a.active {
-  color: #5a4bff;
-  border-bottom: 2px solid #5a4bff;
-  padding-bottom: 4px;
-}
+    nav a:hover::before {
+      visibility: visible;
+      width: 100%;
+    }
 
+    nav a.active {
+      color: #5a4bff;
+      border-bottom: 2px solid #5a4bff;
+      padding-bottom: 4px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      background: #fff;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    .mobile-nav a {
+      font-size: 1.1rem;
+    }
 
     .container {
       max-width: 1200px;
@@ -231,24 +264,42 @@ nav a.active {
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
       .about-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .profile-wrapper img {
+        width: 220px;
+      }
+
+      .gpa-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 0.9rem;
+        bottom: 10px;
+        right: 10px;
       }
 
       .info-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
       }
 
       .timeline::before {
@@ -259,12 +310,17 @@ nav a.active {
         width: 100%;
         left: 0;
         text-align: left;
-        padding-left: 50px;
+        padding-left: 40px;
+        padding-right: 10px;
       }
 
       .timeline-content::before {
         left: -30px !important;
         right: auto;
+      }
+
+      .mobile-nav.show {
+        display: flex;
       }
     }
   </style>
@@ -273,16 +329,24 @@ nav a.active {
 
   <header>
     <h1 class="text-4xl font-bold text-gray-800 flex items-center gap-3">
-  <i class="fas fa-user-circle text-indigo-600"></i>
-  About Us
-</h1>
+      <i class="fas fa-user-circle text-indigo-600"></i> About Us
+    </h1>
 
-    <nav>
-  <a href="index.html"><i class="fas fa-home"></i> Home</a>
-  <a href="project.html"><i class="fas fa-code"></i> Projects</a>
-  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-</nav>
+    <button class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
 
+    <nav class="desktop-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="project.html"><i class="fas fa-code"></i> Projects</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="project.html"><i class="fas fa-code"></i> Projects</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
   </header>
 
   <div class="container">
@@ -311,50 +375,49 @@ nav a.active {
       </div>
     </div>
 
-    <!-- Timeline Section -->
-<section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 px-4 text-white">
-  <div class="max-w-5xl mx-auto">
-    
-    <!-- Section Title -->
-    <div class="text-center mb-12">
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-indigo-400">
-        MY EDUCATION AND JOURNEY
-      </h2>
-      <p class="text-lg mt-2 text-gray-300">A visual timeline of my academic path</p>
-    </div>
+    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 px-4 text-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl sm:text-5xl font-extrabold text-indigo-400">
+            MY EDUCATION AND JOURNEY
+          </h2>
+          <p class="text-lg mt-2 text-gray-300">A visual timeline of my academic path</p>
+        </div>
 
-    <!-- Timeline -->
-    <div class="timeline relative border-l-4 border-indigo-500 pl-6 space-y-12">
-      
-      <!-- B.Tech -->
-      <div class="timeline-item relative">
-        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
-        <div class="timeline-content">
-          <h4 class="text-2xl font-semibold">B.E – Computer Science</h4>
-          <p class="text-gray-300">C.ABDUL HAKEEM COLLEGE OF ENGINEERING AND TECHNOLOGY<br>2022 – 2026<br><strong>CGPA:</strong> 8.45</p>
+        <div class="timeline relative border-l-4 border-indigo-500 pl-6 space-y-12">
+          <div class="timeline-item relative">
+            <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
+            <div class="timeline-content">
+              <h4 class="text-2xl font-semibold">B.E – Computer Science</h4>
+              <p class="text-gray-300">C.ABDUL HAKEEM COLLEGE OF ENGINEERING AND TECHNOLOGY<br>2022 – 2026<br><strong>CGPA:</strong> 8.45</p>
+            </div>
+          </div>
+
+          <div class="timeline-item relative">
+            <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
+            <div class="timeline-content">
+              <h4 class="text-2xl font-semibold">HSC – Higher Secondary</h4>
+              <p class="text-gray-300">Desia Matric Hr Sec School, Kannmangalam<br>2020 – 2022<br><strong>Score:</strong> 76%</p>
+            </div>
+          </div>
+
+          <div class="timeline-item relative">
+            <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
+            <div class="timeline-content">
+              <h4 class="text-2xl font-semibold">SSLC – Secondary School</h4>
+              <p class="text-gray-300">Desia Matric Hr Sec School, Kannmangalam<br>2019 – 2020<br><strong>Score:</strong> 80%</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- HSC -->
-      <div class="timeline-item relative">
-        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
-        <div class="timeline-content">
-          <h4 class="text-2xl font-semibold">HSC – Higher Secondary</h4>
-          <p class="text-gray-300">Desia Matric Hr Sec School, kannmangalam<br>2020 – 2022<br><strong>Score:</strong> 76%</p>
-        </div>
-      </div>
-
-      <!-- SSLC -->
-      <div class="timeline-item relative">
-        <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-1.5 animate-ping"></div>
-        <div class="timeline-content">
-          <h4 class="text-2xl font-semibold">SSLC – Secondary School</h4>
-          <p class="text-gray-300">Desia Matric Hr Sec School, kannmangalam<br>2019 – 2020<br><strong>Score:</strong> 80%</p>
-        </div>
-      </div>
-
-    </div>
+    </section>
   </div>
-</section>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
