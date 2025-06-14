@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* ======= Base Styles ======= */
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -25,7 +24,11 @@
       color: #2c3e50;
     }
 
-    /* ======= Container Layout ======= */
+    h1 i {
+      color: #25D366;
+      margin-right: 10px;
+    }
+
     .contact-container {
       display: flex;
       flex-wrap: wrap;
@@ -34,7 +37,6 @@
       gap: 40px;
     }
 
-    /* ======= Form Styling ======= */
     .contact-form {
       flex: 1 1 450px;
       background: white;
@@ -94,7 +96,6 @@
       background: #1ebd5a;
     }
 
-    /* ======= Map Styling ======= */
     .map-container {
       flex: 1 1 450px;
       border-radius: 12px;
@@ -108,68 +109,204 @@
       min-height: 400px;
       border: 0;
     }
+     
+/* Footer Container */
+footer {
+  background: linear-gradient(to right, #373b44, #4286f4);
+  color: #f2f2f2;
+  padding: 50px 20px;
+  text-align: center;
+  border-top: 4px solid #fff;
+  position: relative;
+  overflow: hidden;
+}
 
-    /* ======= Footer ======= */
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      padding: 40px 10%;
-      text-align: center;
-      margin-top: 60px;
-    }
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  animation: slideInFooter 1s ease;
+}
 
-    .footer-logo {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+footer h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
 
-    .footer-social a {
-      color: #fff;
-      margin: 0 12px;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
+footer p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
 
-    .footer-social a:hover {
-      color: #25D366;
-    }
+.footer-links {
+  margin: 20px 0;
+}
 
-    .footer-links {
-      margin: 10px 0;
-    }
+.footer-links a {
+  color: #f2f2f2;
+  margin: 0 15px;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
 
-    .footer-links a {
-      color: #ccc;
-      margin: 0 8px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+.footer-links a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ffd700;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
 
-    .footer-links a:hover {
-      color: white;
-    }
+.footer-links a:hover {
+  color: #ffd700;
+}
 
-    .footer-bottom {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #bbb;
-    }
+.footer-links a:hover::after {
+  width: 100%;
+}
 
-    /* ======= Responsive ======= */
-    @media (max-width: 768px) {
-      .contact-container {
-        flex-direction: column;
-        padding: 20px;
-      }
-    }
+/* Social Media Icons */
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.4rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffd700;
+  transform: scale(1.2);
+  text-shadow: 0 0 8px #ffd700;
+}
+
+/* Copyright */
+footer .copyright {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-top: 20px;
+}
+
+/* Animation */
+@keyframes slideInFooter {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-links a,
+  .social-icons a {
+    display: block;
+    margin: 10px auto;
+  }
+}
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3e50;
+  padding: 15px 10%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: #f2f2f2;
+  margin-left: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #25D366;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: #25D366;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 5%;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+  }
+}
+
+
   </style>
 </head>
 <body>
 
-<h1>Contact Me</h1>
+
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <i class="fas fa-code"></i> Contact us
+  </div>
+  <div class="nav-links">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  </div>
+</nav>
 
 <div class="contact-container">
+
   <!-- Contact Form -->
   <div class="contact-form">
     <h2><i class="fas fa-envelope"></i> Send a Message</h2>
@@ -190,36 +327,28 @@
     </form>
   </div>
 
-  <!-- Google Map -->
-  <div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.471492616968!2d77.51077471480132!3d10.014300892842448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba86e2deff9b97f%3A0x72c6937a5c2e70ee!2sC%20Abdul%20Hakeem%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1715599999999"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+ <!-- Map Container -->
+<div class="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d7783.095919100364!2d79.14668300000001!3d12.742886000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1749913025434!5m2!1sen!2sin"
+    width="600"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <!-- View Larger Map Link -->
+  <div style="text-align: center; margin-top: 10px;">
+    <a href="https://www.google.com/maps?q=12.742886,79.146683" target="_blank" style="color: #16a085; font-weight: bold; text-decoration: none;">
+      <i class="fas fa-map-marked-alt"></i> View Larger Map
+    </a>
   </div>
 </div>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-logo">Santhana Ezhilan</div>
-  <div class="footer-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-github"></i></a>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="project.html">Projects</a> |
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 Santhana Ezhilan | CSE Student @ C. Abdul Hakeem College of Engineering and Technology
-  </div>
-</footer>
 
-<!-- WhatsApp Message Script -->
+<!-- WhatsApp Script -->
 <script>
   document.getElementById("whatsappForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -228,7 +357,7 @@
     const message = document.getElementById("message").value.trim();
 
     const fullMessage = `Hello! My name is ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-    const phoneNumber = "919876543210"; // Replace with your WhatsApp number
+    const phoneNumber = "919361663265"; // <-- Replace with your WhatsApp number
 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${fullMessage}`;
     window.open(whatsappURL, "_blank");
